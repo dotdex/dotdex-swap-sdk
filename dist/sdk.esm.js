@@ -10,42 +10,126 @@ import { keccak256, pack } from '@ethersproject/solidity';
 import { Contract } from '@ethersproject/contracts';
 import { getNetwork } from '@ethersproject/networks';
 import { getDefaultProvider } from '@ethersproject/providers';
-import IPancakePair from '@wagyu-swap-libs/wagyu-swap-core/artifacts/IPancakePair.json';
+import IPancakePair from '@dotdex-swap-libs/dotdex-swap-core/artifacts/IPancakePair.json';
 
 var addresses = {
-	"106": {
-	owner: "0x4105FAAD40d1e3320989806466dF30eF260E0e42",
-	Multicall2: "0x0747CFe82D3Bee998f634569FE2B0005dF9d8EDE",
-	WAGToken: "0xaBf26902Fd7B624e0db40D31171eA9ddDf078351",
-	WVLX: "0xc579D1f3CF86749E05CD06f7ADe17856c2CE3126",
-	WAGStake: "0xf84fB4a80DD211408699afa9C7A9D236Feff1dD8",
-	Timelock: "0x88396C6c872aA12e9C68bD225c16dEa959361eaD",
-	WAGFarm: "0xa7e8280b8CE4f87dFeFc3d1F2254B5CCD971E852",
-	WagyuVault: "0x0FE86ee7437608F8B8f6185dab1667Ac44e0b59b",
-	VaultOwner: "0x8acDeCCd75552B56A4cB1aBC4842371d7e55699b",
-	WAGStakingFactory: "0x2394632041D76C82c34a6114985C4DDA69594C82",
-	WagyuFactory: "0x69f3212344A38b35844cCe4864C2af9c717F35e3",
-	PancakeFactory_Init_Code_Hash: "0x3f7eace9f1c10ecce400030e19a86fd03c98c3770ce239a9cdef3b33fb40e933",
-	WagyuRouter: "0x3D1c58B6d4501E34DF37Cf0f664A58059a188F00"
-},
-	"111": {
-	WagyuFactory: "0x524dB42469a1Eb12E7f2b3fEefD9A1f880fC7A4C",
+	"1284": {
+	DotDexFactory: "0x59ebbEE26bA20A0275346c47860Ef6b018F03582",
 	PancakeFactory_Init_Code_Hash: "0x3e587aafa830ed6729f6ad31bd15f244a5938c6c3dc057d4fcf2cbc0b1046987",
-	owner: "0x1a642f0E3c3aF545E7AcBD38b07251B3990914F1",
-	Multicall2: "0xacbc13523fE673dCF8bf549AF00B5b4F9D9aBB6e",
-	WAGToken: "0xb830d8213e2c3dD621037703D05A5e594387B6Be",
-	WVLX: "0x071DA4A38460bb14686C1D44d85A7BDad0d6BaC5",
-	TE6: "0x7777b22B5f5A5d1B9ED16bad28E31215273f48B6",
-	TE9: "0x045cf7eF71cC42a5CA1F9C4A330Bf1349295034c",
-	TE12: "0xF8f13cFdA6b41Cc9FC3FB0Ff217B0C449cE4Eb29",
-	TE18: "0x35E0c9830d3d6c273C2A58DB725214afa39bdEf3",
-	WAGStake: "0xd0338acDCaAda6E306B613c437a8Ad7B0118b9a9",
-	Timelock: "0x4C4Bdf7b579494A44a314c5D40dE5B53502F6608",
-	WAGFarm: "0x0FE7711dD2A622725FfB30f378145e1D40127f80",
-	WagyuVault: "0xD3A8555607e18142a1AC634c66C15671E6A56686",
-	VaultOwner: "0xe804675EbBBB3c70Cf66F12d2f7ADB8934F3e5F8",
-	WAGStakingFactory: "0x211E287FD967a51D7A1F8c2Fb7788c6142e084b1",
-	WagyuRouter: "0x5F61a8Ef05470A74E4b17C567ff32d26F7A02646"
+	owner: "0x5CC20665b8A8EBBF609eeEA460B3cFb6553c019D",
+	Multicall2: "0x920cFd94E34a5039fC8359bedBb5eeE7beD2A3B8",
+	DotDexToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097",
+	WGLMR: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+	TE6: "0x6425B22F1B8E9244015Cf79613b10ca9d011fd07",
+	TE9: "0x40eF341B8c109D0aC24D8a731d03Ce4830E50399",
+	TE12: "0x6B61DBb1a9060819efcb2aA55028eE6f56F84043",
+	TE18: "0xf8cda39C2F2Eb77BE0772969c4822664a1C50F9D",
+	DotDexStake: "0x67A40DeDEd6c97B860F66Bbe685c94aF6f2a6A2E",
+	Timelock: "0x77fa93cB4Fc1d1Ab867982c3c2309426B9F106C4",
+	DotDexFarm: "0x2DC30a5456a558E308072a3b4056d131D87FF696",
+	DotDexVault: "0xc6635459F8De44751D0B2D41F9DbF87A79883CB1",
+	VaultOwner: "0xb0292A6975792c883E4208bed1a477d2DFFB1B6D",
+	DotDexStakingFactory: "0xECA21df51e765d62c19e255b7217dD3219F7444A",
+	DotDexRouter: "0x042D661A42Bc884ebFe5EA1606FbDea94A9bfc24",
+	TE6_SousChef: {
+		address: "0x185809870Dc5B5EfD887f34f7193113A168C4733",
+		stakedToken: "0x6425B22F1B8E9244015Cf79613b10ca9d011fd07",
+		rewardToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097"
+	},
+	TE9_SousChef: {
+		address: "0x42a0a2C00AF071d665120fa93F23d3EB3e90E244",
+		stakedToken: "0x40eF341B8c109D0aC24D8a731d03Ce4830E50399",
+		rewardToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097"
+	},
+	TE12_SousChef: {
+		address: "0x528B4C512721641c6DfDc98455545eD2C950640A",
+		stakedToken: "0x6B61DBb1a9060819efcb2aA55028eE6f56F84043",
+		rewardToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097"
+	},
+	TE18_SousChef: {
+		address: "0x392EC3C71C7404966a421718F738c36B13A81de8",
+		stakedToken: "0xf8cda39C2F2Eb77BE0772969c4822664a1C50F9D",
+		rewardToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097"
+	},
+	GLMR_TE6_LP: {
+		pair: "0x2C9Ce1fe6a71e1C02e00825A0adb100706e1bc00",
+		tokenA: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+		tokenB: "0x6425B22F1B8E9244015Cf79613b10ca9d011fd07"
+	},
+	GLMR_TE9_LP: {
+		pair: "0x942CcB4E4fF1CA5068489e2a042Df59f508a4019",
+		tokenA: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+		tokenB: "0x40eF341B8c109D0aC24D8a731d03Ce4830E50399"
+	},
+	GLMR_TE12_LP: {
+		pair: "0x44389C75E15CDF62987F322f7180c57B16735177",
+		tokenA: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+		tokenB: "0x6B61DBb1a9060819efcb2aA55028eE6f56F84043"
+	},
+	GLMR_TE18_LP: {
+		pair: "0x0aEf2Dc276af975A98e2E28662adb32dC5a94080",
+		tokenA: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+		tokenB: "0xf8cda39C2F2Eb77BE0772969c4822664a1C50F9D"
+	}
+},
+	"1287": {
+	DotDexFactory: "0x59ebbEE26bA20A0275346c47860Ef6b018F03582",
+	PancakeFactory_Init_Code_Hash: "0x3e587aafa830ed6729f6ad31bd15f244a5938c6c3dc057d4fcf2cbc0b1046987",
+	owner: "0x5CC20665b8A8EBBF609eeEA460B3cFb6553c019D",
+	Multicall2: "0x920cFd94E34a5039fC8359bedBb5eeE7beD2A3B8",
+	DotDexToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097",
+	WGLMR: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+	TE6: "0x6425B22F1B8E9244015Cf79613b10ca9d011fd07",
+	TE9: "0x40eF341B8c109D0aC24D8a731d03Ce4830E50399",
+	TE12: "0x6B61DBb1a9060819efcb2aA55028eE6f56F84043",
+	TE18: "0xf8cda39C2F2Eb77BE0772969c4822664a1C50F9D",
+	DotDexStake: "0x67A40DeDEd6c97B860F66Bbe685c94aF6f2a6A2E",
+	Timelock: "0x77fa93cB4Fc1d1Ab867982c3c2309426B9F106C4",
+	DotDexFarm: "0x2DC30a5456a558E308072a3b4056d131D87FF696",
+	DotDexVault: "0xc6635459F8De44751D0B2D41F9DbF87A79883CB1",
+	VaultOwner: "0xb0292A6975792c883E4208bed1a477d2DFFB1B6D",
+	DotDexStakingFactory: "0xECA21df51e765d62c19e255b7217dD3219F7444A",
+	DotDexRouter: "0x042D661A42Bc884ebFe5EA1606FbDea94A9bfc24",
+	TE6_SousChef: {
+		address: "0x185809870Dc5B5EfD887f34f7193113A168C4733",
+		stakedToken: "0x6425B22F1B8E9244015Cf79613b10ca9d011fd07",
+		rewardToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097"
+	},
+	TE9_SousChef: {
+		address: "0x42a0a2C00AF071d665120fa93F23d3EB3e90E244",
+		stakedToken: "0x40eF341B8c109D0aC24D8a731d03Ce4830E50399",
+		rewardToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097"
+	},
+	TE12_SousChef: {
+		address: "0x528B4C512721641c6DfDc98455545eD2C950640A",
+		stakedToken: "0x6B61DBb1a9060819efcb2aA55028eE6f56F84043",
+		rewardToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097"
+	},
+	TE18_SousChef: {
+		address: "0x392EC3C71C7404966a421718F738c36B13A81de8",
+		stakedToken: "0xf8cda39C2F2Eb77BE0772969c4822664a1C50F9D",
+		rewardToken: "0x6750ceb47dA689cEAe6da6085f9713c6eC404097"
+	},
+	GLMR_TE6_LP: {
+		pair: "0x2C9Ce1fe6a71e1C02e00825A0adb100706e1bc00",
+		tokenA: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+		tokenB: "0x6425B22F1B8E9244015Cf79613b10ca9d011fd07"
+	},
+	GLMR_TE9_LP: {
+		pair: "0x942CcB4E4fF1CA5068489e2a042Df59f508a4019",
+		tokenA: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+		tokenB: "0x40eF341B8c109D0aC24D8a731d03Ce4830E50399"
+	},
+	GLMR_TE12_LP: {
+		pair: "0x44389C75E15CDF62987F322f7180c57B16735177",
+		tokenA: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+		tokenB: "0x6B61DBb1a9060819efcb2aA55028eE6f56F84043"
+	},
+	GLMR_TE18_LP: {
+		pair: "0x0aEf2Dc276af975A98e2E28662adb32dC5a94080",
+		tokenA: "0x0a2b629d019Bb9aceae3CB646570af156f5c022a",
+		tokenB: "0xf8cda39C2F2Eb77BE0772969c4822664a1C50F9D"
+	}
 }
 };
 
@@ -53,8 +137,8 @@ var _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 106] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 111] = "TESTNET";
+  ChainId[ChainId["MAINNET"] = 1284] = "MAINNET";
+  ChainId[ChainId["TESTNET"] = 1287] = "TESTNET";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -72,8 +156,8 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var DEFAULT_CHAIN_ID = ChainId.MAINNET;
-var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].WagyuFactory;
+var DEFAULT_CHAIN_ID = ChainId.TESTNET;
+var FACTORY_ADDRESS = addresses[DEFAULT_CHAIN_ID].DotDexFactory;
 var INIT_CODE_HASH = addresses[DEFAULT_CHAIN_ID].PancakeFactory_Init_Code_Hash;
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
@@ -407,7 +491,7 @@ function Currency(decimals, symbol, name) {
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/new Currency(18, 'VLX', 'Velas VLX');
+Currency.ETHER = /*#__PURE__*/new Currency(18, 'GLMR', 'MoonBeam GLMR');
 var ETHER = Currency.ETHER;
 
 var _WETH;
@@ -474,7 +558,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WVLX, 18, 'WVLX', 'Wrapped VLX', 'https://www.velas.com/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WVLX, 18, 'WVLX', 'Wrapped VLX', 'https://www.velas.com/'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, addresses[ChainId.MAINNET].WGLMR, 18, 'WGLMR', 'Wrapped GLMR', 'https://dotdex.io/'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, addresses[ChainId.TESTNET].WGLMR, 18, 'WGLMR', 'Wrapped GLMR', 'https://dotdex.io/'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

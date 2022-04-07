@@ -1365,6 +1365,14 @@
     buffer "^5.4.3"
     seedrandom "^3.0.5"
 
+"@dotdex-swap-libs/dotdex-swap-core@https://github.com/dotdex/dotdex-swap-core.git":
+  version "0.1.0"
+  resolved "https://github.com/dotdex/dotdex-swap-core.git#04c5b2d07eb12934ca6a909f00326afa63f91d9b"
+  dependencies:
+    truffle "^5.1.41"
+    truffle-flattener "^1.4.4"
+    truffle-hdwallet-provider "^1.0.17"
+
 "@ethersproject/abi@5.0.7":
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/@ethersproject/abi/-/abi-5.0.7.tgz#79e52452bd3ca2956d0e1c964207a58ad1a0ee7b"
@@ -3368,14 +3376,6 @@
     lodash "^4.17.15"
     semver "^7.3.2"
     tsutils "^3.17.1"
-
-"@wagyu-swap-libs/wagyu-swap-core@git://github.com/wagyuswapapp/wagyu-swap-core.git":
-  version "0.1.0"
-  resolved "git://github.com/wagyuswapapp/wagyu-swap-core.git#f819955ce5d0d8a34d1908ca4b59d14466c35ce2"
-  dependencies:
-    truffle "^5.1.41"
-    truffle-flattener "^1.4.4"
-    truffle-hdwallet-provider "^1.0.17"
 
 "@wry/context@^0.6.0":
   version "0.6.0"

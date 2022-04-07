@@ -1,16 +1,16 @@
 {
-  "name": "@wagyu-swap/sdk",
+  "name": "@dotdex-swap/sdk",
   "license": "MIT",
   "version": "2.4.0",
-  "description": "🛠 An SDK for building applications on top of Wagyu Swap.",
+  "description": "🛠 An SDK for building applications on top of DotDex.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/altbee/wagyu-swap-sdk.git",
+  "repository": "https://github.com/dotdex/dotdex-swap-sdk",
   "keywords": [
-    "wagyu-swap",
+    "dotdex-swap",
     "bsc"
   ],
   "module": "dist/sdk.esm.js",
@@ -22,7 +22,7 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
-    "@wagyu-swap-libs/wagyu-swap-core": "git://github.com/wagyuswapapp/wagyu-swap-core.git",
+    "@dotdex-swap-libs/dotdex-swap-core": "https://github.com/dotdex/dotdex-swap-core.git",
     "big.js": "^5.2.2",
     "decimal.js-light": "^2.5.0",
     "jsbi": "^3.1.1",
